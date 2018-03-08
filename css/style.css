@@ -1,0 +1,143 @@
+body{
+    font-family: Century Gothic,Lucida Grande,Helvetica font;
+    background-color:lightslategrey;
+}
+
+/* The dot means class */
+.mensaje{
+    color: green;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+}
+
+/* The # denotes id*/
+#container{
+    width: 95%;
+    /* Apply to all four sides
+    margin: 0;
+    */
+    /* vertical | horizontal
+    margin: 5% auto;
+    */
+    /* top | horizontal | bottom
+    margin: 1em auto 2em;
+    */
+    /* top | right | bottom | left
+    margin: 2px 1em 0 auto;
+    */
+    margin: 1em auto;
+    /* Specifies what to do when an element's content is too large to fit in its block formatting context */
+    overflow: auto;
+    border-radius: 0.5em;
+    background: lightcyan;
+}
+
+header#main{
+    padding: 1em;
+    background: lightgray;
+}
+
+main{
+    padding: 1em;
+}
+
+footer#main{
+    padding: 0.5em;
+    text-align: center;
+}
+
+
+/*nav{
+    background: black;
+    height: 2em;
+}
+nav li {
+    float: left;
+    padding: 0.5em 0.5em;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+}*/
+
+
+nav{
+    background-color: black;
+}
+
+nav ul li{
+    display: inline-block;
+    float:center;
+}
+
+nav ul li a{
+    color: #aaa;
+    display: block;
+    line-height: 2em;
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+}
+
+nav a:hover{
+    /*background-color: gray;*/
+    color: gray;
+}
+
+section#main{
+    float:left;
+    width: 80%
+}
+
+img{
+    float: left;
+}
+aside{
+    float:right;
+    width: 40%;
+    text-align: left;
+    background: PINK;
+    padding-right: 2em;
+    margin: 1em auto;
+    border-radius: 0.5em;
+
+}
+aside ul li{
+    line-height: 2em;
+    padding: 0.5em 0.5em;
+    list-style: none;
+}
+
+aside ul li a{
+   text-decoration: none;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+    section#main{
+        float:none;
+        width: 100%
+    }
+
+    aside{
+        float:none;
+        width: 100%;
+    }
+}
+
+.clearfix{
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after{
+    content: " ";
+    display: table;
+}
+
+.clearfix:after{
+    clear:both;
+}
