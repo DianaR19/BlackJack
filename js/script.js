@@ -125,7 +125,7 @@ $(document).on('click','#stand', function (event) {
         $('.ganador').empty(); 
 
         if(puntosCasa > 21){
-            $(".ganador").append("<h2>1GANO EL JUGADOR</h2>");
+            $(".ganador").append("<h2>GANO EL JUGADOR</h2>");
         }else{
             if(puntosCasa == puntosJugador){            
                 $(".ganador").append("<h2>PUSH</h2>");
@@ -133,7 +133,7 @@ $(document).on('click','#stand', function (event) {
                 if( puntosCasa > puntosJugador){
                     $(".ganador").append("<h2>GANO LA CASA</h2>");
                 }else{
-                    $(".ganador").append("<h2>2GANO EL JUGADOR</h2>");
+                    $(".ganador").append("<h2>GANO EL JUGADOR</h2>");
                 }
             }
         }        
