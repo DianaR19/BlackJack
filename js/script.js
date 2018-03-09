@@ -36,7 +36,7 @@ $(document).on('click','#hit', function (event) {
             
         }while(aux.indexOf(nuevo)!=-1);
 
-        $(".cartasJugador").append("<img id='carCasa1' src='imgs/Cards/"+nuevo+".png' width='100' height='150'>");
+        $(".cartasJugador").append("<img id='carCasa' src='imgs/Cards/"+nuevo+".png' width='100' height='150'>");
 
         aux.push(nuevo);
 
@@ -45,6 +45,7 @@ $(document).on('click','#hit', function (event) {
         console.log("ya no hay barajas");
     }
 });
+
 $(document).on('click','#stand', function (event) {
     $("#stand").hide();  
     $("#hit").hide();  
@@ -63,13 +64,25 @@ $(document).on('click','#stand', function (event) {
         }
     }
 
+
+    if(puntosJugador > 21){
+        var ban = 0;
+        for(var i=2; i<numBar; i++){
+            var buscarA = aux[i].split("-");
+            if(buscarA == 'A')
+                ban = 1;
+        }
+        if(ban == 1)
+            puntosJugador -=9 ;
+        else
+            $(".ganador").append("<h2>GANO LA CASA</h2>");   
+    }
     console.log("-------pts JUGADOR----------");
     console.log(puntosJugador);
 
-    if(puntosJugador > 21){
-        console.log("GANA LA CASA");        
-    }else{
+    if(puntosJugador <= 21){
         console.log("TURNO DE LA CASA");  
+        $("#carCasa1").attr("src","imgs/Cards/"+ aux[0] +".png");
         
         var puntosCasa = 0;
               
@@ -84,12 +97,70 @@ $(document).on('click','#stand', function (event) {
             }
         }
 
-        if(puntosCasa <15){
+        while(puntosCasa < 16){
+            do{
+                var x = Math.floor((Math.random() * 4 )); //tipos.length
+                var y = Math.floor((Math.random() * 13)); //cartas.length
+    
+                var nuevo = tipos[x] + "-" + cartas[y];
+                
+            }while(aux.indexOf(nuevo)!=-1);
+            $(".cartasCasa").append("<img id='carCasa' src='imgs/Cards/"+nuevo+".png' width='100' height='150'>");
+
+            var cadena = nuevo.split("-");
+            
+            if(cadena[1]=="A" || cadena[1]=="J" || cadena[1]=="Q" || cadena[1]=="K"){
+                puntosCasa += 10;
+            }else{
+                puntosCasa += cartas.indexOf(cadena[1]) + 1;
+            }
             
         }
 
         console.log("-------pts CASA----------");
         console.log(puntosCasa);
-    }
+
+        
+        console.log(":::::::::::::::::::::::::::::::::::::::");
+        $('.ganador').empty(); 
+
+        if(puntosCasa > 21){
+            $(".ganador").append("<h2>GANO EL JUGADOR</h2>");
+        }else{
+            if(puntosCasa == puntosJugador){            
+                $(".ganador").append("<h2>PUSH</h2>");
+            }else{
+                if( puntosCasa > puntosCasa){
+                    $(".ganador").append("<h2>GANO LA CASA</h2>");
+                }else{
+                    $(".ganador").append("<h2>GANO EL JUGADOR</h2>");
+                }
+            }
+        }        
+    }   
+
+    $("#restart").show();  
 
 });
+
+$(document).on('click','#restart', function (event) {
+    restart();
+    $('.ganador').empty(); 
+    $('#iniciar').click();
+    $('#restart').hide();
+});
+
+
+function restart() {
+    aux = [];
+    contBar = 0;
+    
+    $('.cartasJugador').empty();    
+    $(".cartasJugador").append("<img id='carJugador1' src='imgs/Cards/fondo.png' width='100' height='150'>");
+    $(".cartasJugador").append("<img id='carJugador2' src='imgs/Cards/fondo.png' width='100' height='150'>");
+    $('.cartasCasa').empty();
+    $(".cartasCasa").append("<img id='carCasa1' src='imgs/Cards/fondo.png' width='100' height='150'>");
+    $(".cartasCasa").append("<img id='carCasa2' src='imgs/Cards/fondo.png' width='100' height='150'>");
+
+
+}
