@@ -74,7 +74,7 @@ $(document).on('click','#stand', function (event) {
         var ban = 0;
         for(var i=2; i<numBar; i++){
             var buscarA = aux[i].split("-");
-            if(buscarA == 'A')
+            if(buscarA[1] == 'A')
                 ban = 1;
         }
         if(ban == 1)
@@ -111,7 +111,8 @@ $(document).on('click','#stand', function (event) {
                 
             }while(aux.indexOf(nuevo)!=-1);
             $(".cartasCasa").append("<img id='carCasa' src='imgs/Cards/"+nuevo+".png' width='100' height='150'>");
-
+            aux.push(nuevo);
+        
             var cadena = nuevo.split("-");
             
             if(cadena[1]=="A" || cadena[1]=="J" || cadena[1]=="Q" || cadena[1]=="K"){
@@ -130,8 +131,54 @@ $(document).on('click','#stand', function (event) {
         $('.ganador').empty(); 
 
         if(puntosCasa > 21){
-            $(".ganador").append("<h2>GANO EL JUGADOR</h2>");
-        }else{
+            var ban = 0;
+            for(var i=0; i<aux.length; i++){
+                if((i>=0 && i<2) || (i>=numBar)){
+                    var buscarA = aux[i].split("-");
+                    if(buscarA[1] == 'A')
+                        ban = 1;
+                }
+            }
+            if(ban == 1){
+                puntosCasa -=9 ;
+                while(puntosCasa < 16){
+                    do{
+                        var x = Math.floor((Math.random() * 4 )); //tipos.length
+                        var y = Math.floor((Math.random() * 13)); //cartas.length
+            
+                        var nuevo = tipos[x] + "-" + cartas[y];
+                        
+                    }while(aux.indexOf(nuevo)!=-1);
+                    $(".cartasCasa").append("<img id='carCasa' src='imgs/Cards/"+nuevo+".png' width='100' height='150'>");
+                    aux.push(nuevo);
+                
+                    var cadena = nuevo.split("-");
+                    
+                    if(cadena[1]=="A" || cadena[1]=="J" || cadena[1]=="Q" || cadena[1]=="K"){
+                        puntosCasa += 10;
+                    }else{
+                        puntosCasa += cartas.indexOf(cadena[1]) + 1;
+                    }
+                    
+                }
+                if(puntosCasa > 21){
+                    var ban = 0;
+                    for(var i=0; i<aux.length; i++){
+                        if((i>=0 && i<2) || (i>=numBar)){
+                            var buscarA = aux[i].split("-");
+                            if(buscarA[1] == 'A')
+                                ban ++;
+                        }
+                    }
+                    if(ban == 2)
+                        puntosCasa -=9 ;                        
+                    else
+                        $(".ganador").append("<h2>GANO EL JUGADOR</h2>");
+                }
+            }else
+                $(".ganador").append("<h2>GANO EL JUGADOR</h2>");
+        }
+        if(puntosCasa <= 21){
             if(puntosCasa == puntosJugador){            
                 $(".ganador").append("<h2>EMPATE</h2>");
             }else{
