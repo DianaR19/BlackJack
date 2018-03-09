@@ -192,6 +192,8 @@ $(document).on('click','#stand', function (event) {
         
         
 
+    }else{
+        $(".ganador").append("<h2>GANO LA CASA</h2>");
     }   
     $("#casaTotal").html(puntosCasa);
     $("#jugadorTotal").html(puntosJugador);
