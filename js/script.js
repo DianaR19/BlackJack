@@ -42,7 +42,7 @@ $(document).on('click','#hit', function (event) {
 
         contBar++;
     }else{
-        console.log("ya no hay barajas");
+        console.log("ya no hay cartas");
     }
 });
 
@@ -80,16 +80,7 @@ $(document).on('click','#stand', function (event) {
     console.log("-------pts JUGADOR----------");
     console.log(puntosJugador);
 
-<<<<<<< HEAD
-    if(puntosJugador > 21){
-        console.log("GANA LA CASA"); 
-        restartGame();
-        
-        
-    }else{
-=======
     if(puntosJugador <= 21){
->>>>>>> 5a07b5addd061f9a76065ad8835079ca95d51ddb
         console.log("TURNO DE LA CASA");  
         $("#carCasa1").attr("src","imgs/Cards/"+ aux[0] +".png");
         
@@ -129,22 +120,6 @@ $(document).on('click','#stand', function (event) {
         console.log("-------pts CASA----------");
         console.log(puntosCasa);
 
-<<<<<<< HEAD
-});
-
-function restartGame(){		
-
-        $("#restart").show();
-
-    $(document).on('click','#restart', function (event) {
-        $("#restart").hide();  
-               
-        $(".cartasCasa").html("<img id='carCasa1' src='imgs/Cards/fondo.png' width='100' height='150'><img id='carCasa2' src='imgs/Cards/fondo.png' width='100' height='150'>");		
-        $(".cartasJugador").html("<img id='carJugador1' src='imgs/Cards/fondo.png' width='100' height='150'><img id='carJugador2' src='imgs/Cards/fondo.png' width='100' height='150'>");
-
-        $(".ButtonsHitStand").html("<input id='hit' type=image src='imgs/Cards/0.jpg' width='100' height='150' style='display:none;'><button id='stand' style='display:none;'>Stand</button>");
-    });
-=======
         
         console.log(":::::::::::::::::::::::::::::::::::::::");
         $('.ganador').empty(); 
@@ -177,6 +152,9 @@ $(document).on('click','#restart', function (event) {
 
 
 function restart() {
+
+    //se agrega funcion de reiniciar
+    
     aux = [];
     contBar = 0;
     
@@ -186,7 +164,6 @@ function restart() {
     $('.cartasCasa').empty();
     $(".cartasCasa").append("<img id='carCasa1' src='imgs/Cards/fondo.png' width='100' height='150'>");
     $(".cartasCasa").append("<img id='carCasa2' src='imgs/Cards/fondo.png' width='100' height='150'>");
->>>>>>> 5a07b5addd061f9a76065ad8835079ca95d51ddb
 
 
 }
