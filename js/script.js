@@ -42,13 +42,18 @@ $(document).on('click','#hit', function (event) {
 
         contBar++;
     }else{
-        console.log("ya no hay barajas");
+        console.log("ya no hay cartas");
     }
 });
 
 $(document).on('click','#stand', function (event) {
     $("#stand").hide();  
     $("#hit").hide();  
+
+    $("#carCasa1").attr("src","imgs/Cards/"+ aux[0] +".png");
+   
+        
+
     var numBar = contBar+4;
     
     var puntosJugador = 0;
@@ -128,7 +133,7 @@ $(document).on('click','#stand', function (event) {
             $(".ganador").append("<h2>GANO EL JUGADOR</h2>");
         }else{
             if(puntosCasa == puntosJugador){            
-                $(".ganador").append("<h2>PUSH</h2>");
+                $(".ganador").append("<h2>EMPATE</h2>");
             }else{
                 if( puntosCasa > puntosJugador){
                     $(".ganador").append("<h2>GANO LA CASA</h2>");
@@ -136,9 +141,13 @@ $(document).on('click','#stand', function (event) {
                     $(".ganador").append("<h2>GANO EL JUGADOR</h2>");
                 }
             }
-        }        
-    }   
+        } 
+        
+        
 
+    }   
+    $("#casaTotal").html(puntosCasa);
+    $("#jugadorTotal").html(puntosJugador);
     $("#restart").show();  
 
 });
@@ -152,15 +161,19 @@ $(document).on('click','#restart', function (event) {
 
 
 function restart() {
+
+    //se agrega funcion de reiniciar
+
     aux = [];
     contBar = 0;
     
     $('.cartasJugador').empty();    
     $(".cartasJugador").append("<img id='carJugador1' src='imgs/Cards/fondo.png' width='100' height='150'>");
     $(".cartasJugador").append("<img id='carJugador2' src='imgs/Cards/fondo.png' width='100' height='150'>");
-    $('.cartasCasa').empty();
+    $(".cartasCasa").empty();
     $(".cartasCasa").append("<img id='carCasa1' src='imgs/Cards/fondo.png' width='100' height='150'>");
     $(".cartasCasa").append("<img id='carCasa2' src='imgs/Cards/fondo.png' width='100' height='150'>");
 
-
+    $("#jugadorTotal").html('');	
+    $("#casaTotal").html('');
 }
