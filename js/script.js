@@ -49,6 +49,10 @@ $(document).on('click','#hit', function (event) {
 $(document).on('click','#stand', function (event) {
     $("#stand").hide();  
     $("#hit").hide();  
+
+    $("#carCasa1").attr("src","imgs/Cards/"+ aux[0] +".png");
+        
+
     var numBar = contBar+4;
     
     var puntosJugador = 0;
@@ -154,7 +158,7 @@ $(document).on('click','#restart', function (event) {
 function restart() {
 
     //se agrega funcion de reiniciar
-    
+
     aux = [];
     contBar = 0;
     
