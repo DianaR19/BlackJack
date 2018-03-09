@@ -67,7 +67,10 @@ $(document).on('click','#stand', function (event) {
     console.log(puntosJugador);
 
     if(puntosJugador > 21){
-        console.log("GANA LA CASA");        
+        console.log("GANA LA CASA"); 
+        restartGame();
+        
+        
     }else{
         console.log("TURNO DE LA CASA");  
         
@@ -93,3 +96,19 @@ $(document).on('click','#stand', function (event) {
     }
 
 });
+
+function restartGame(){		
+
+        $("#restart").show();
+
+    $(document).on('click','#restart', function (event) {
+        $("#restart").hide();  
+               
+        $(".cartasCasa").html("<img id='carCasa1' src='imgs/Cards/fondo.png' width='100' height='150'><img id='carCasa2' src='imgs/Cards/fondo.png' width='100' height='150'>");		
+        $(".cartasJugador").html("<img id='carJugador1' src='imgs/Cards/fondo.png' width='100' height='150'><img id='carJugador2' src='imgs/Cards/fondo.png' width='100' height='150'>");
+
+        $(".ButtonsHitStand").html("<input id='hit' type=image src='imgs/Cards/0.jpg' width='100' height='150' style='display:none;'><button id='stand' style='display:none;'>Stand</button>");
+    });
+
+
+}
