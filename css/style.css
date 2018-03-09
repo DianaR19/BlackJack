@@ -146,7 +146,7 @@ aside ul li a{
 .clearfix:after{
     clear:both;
 }
-
+/*Estilos agregados*/
 .ganador {
     text-align: center;
     color: white;
