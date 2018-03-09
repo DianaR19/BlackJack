@@ -1,6 +1,6 @@
 body{
     font-family: Century Gothic,Lucida Grande,Helvetica font;
-    background-color:lightslategrey;
+    background-color:black;
 }
 
 /* The dot means class */
@@ -32,7 +32,7 @@ ul{
     /* Specifies what to do when an element's content is too large to fit in its block formatting context */
     overflow: auto;
     border-radius: 0.5em;
-    background: lightcyan;
+    background: purple;
 }
 
 header#main{
