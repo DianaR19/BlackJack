@@ -1,6 +1,6 @@
 body{
     font-family: Century Gothic,Lucida Grande,Helvetica font;
-    background-color:black;
+    background:black;
 }
 
 /* The dot means class */
@@ -37,7 +37,7 @@ ul{
 
 header#main{
     padding: 1em;
-    background: lightgray;
+    background:black;
 }
 
 main{
@@ -70,7 +70,6 @@ nav{
 
 nav ul li{
     display: inline-block;
-    float:center;
 }
 
 nav ul li a{
@@ -88,7 +87,11 @@ nav a:hover{
 
 section#main{
     float:left;
-    width: 80%
+    width: 80%;
+    background: PINK;
+    padding-right: 2em;
+    margin: 1em auto;
+    border-radius: 0.5em;
 }
 
 img{
@@ -104,6 +107,8 @@ aside{
     border-radius: 0.5em;
 
 }
+
+
 aside ul li{
     line-height: 2em;
     padding: 0.5em 0.5em;
@@ -140,4 +145,18 @@ aside ul li a{
 
 .clearfix:after{
     clear:both;
+}
+
+.ganador {
+    text-align: center;
+    color: white;
+    font-family: Century Gothic,Lucida Grande,Helvetica font;
+}
+.col-md-4{
+    background: pink;   
+    border-radius: 1em;
+}
+.col-md-5{
+    background: pink;   
+    border-radius: 1em;
 }
